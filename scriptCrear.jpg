@@ -1,0 +1,12 @@
+#!/bin/bash
+
+NombreMaquina=${1}
+NNucleos=${2}
+TamanoRam=${3}
+
+
+VBoxManage createhd --filename $NombreMaquina.vdi --size 1600
+VBoxManage createvm --name $NombreMaquina --ostype Linux --register
+VBoxManage modifyvm $NombreMaquina --memory $TamanoRam --vram 128
+VBoxManage modifyvm $NombreMaquina --cpus $NNucleos
+
